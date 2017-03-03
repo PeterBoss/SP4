@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>EX4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <div id="d1"></div>
+        <form>
+            <input type="text" value="" id="input"/>
+            <input type="submit" value="Add" id="btn" />
+            <button id="removeFirstBtn">Remove first</button>
+            <button id="removeLastBtn">Remove last</button>
+        </form>
+        <script>
+            var names = ["Lars", "Peter", "Jan", "Ian"];
+
+            function listMaker(arr) {
+                var lis = arr.map(function (name) {
+                    return "<li>" + name + "</li>";
+                });
+                return "<ul>" + lis.join("") + "</ul>";
+            }
+            function refreshList() {
+                document.getElementById("d1").innerHTML = listMaker(names);
+            }
+            refreshList();
+
+            document.getElementById("btn").addEventListener("click", addName);
+
+            function addName(evt) {
+                evt.preventDefault();
+                var name = document.getElementById("input").value;
+                names.push(name);
+                refreshList();
+            }
+
+            document.getElementById("removeFirstBtn").addEventListener("click", function (evt) {
+                evt.preventDefault();
+                names.shift();
+                refreshList();
+            });
+            document.getElementById("removeLastBtn").addEventListener("click", function (evt) {
+               evt.preventDefault();
+               names.pop();
+               refreshList();
+            });
+        </script>
+    </body>
+</html>

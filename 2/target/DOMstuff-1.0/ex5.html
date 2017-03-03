@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>EX5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table border="1" id="carTable">
+
+        </table>
+
+        <script>
+            var cars = [
+                {id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000},
+                {id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900},
+                {id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000},
+                {id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799},
+                {id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799}
+            ];
+            function tableMaker(arr) {
+                var lis = arr.map(function (car) {
+                    return "<tr>" +
+                            "<td>" + car.id + "</td>" +
+                            "<td>" + car.year + "</td>" +
+                            "<td>" + car.make + "</td>" +
+                            "<td>" + car.model + "</td>" +
+                            "<td>" + car.price + "</td>" +
+                            "</tr>";
+                });
+                return lis.join("");
+            }
+            function carTableMaker(arr) { //alternative
+                var table = document.getElementById("carTable");
+
+                for (var i = 0; i < arr.length; i++) {
+                    var car = arr[i];
+
+                    var row = table.insertRow(i);
+//                    var cell1 = row.insertCell(0);
+//                    var cell2 = row.insertCell(1);
+//                    var cell3 = row.insertCell(2);
+//                    var cell4 = row.insertCell(3);
+//                    var cell5 = row.insertCell(4);
+//                    cell1.innerHTML = car.id;
+//                    cell2.innerHTML = car.year;
+//                    cell3.innerHTML = car.make;
+//                    cell4.innerHTML = car.model;
+//                    cell5.innerHTML = car.price;
+                    var index = 0;
+                    for (var prop in car) {
+                        row.insertCell(index).innerHTML = car[prop];
+                        index++;
+                    }
+                }
+            }
+//            carTableMaker(cars);
+            document.getElementById("carTable").innerHTML = tableMaker(cars);
+        </script>
+    </body>
+</html>

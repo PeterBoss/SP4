@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EX2</title> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .mydiv {width: 25px; height: 25px; background-color: yellow; margin: 1px}
+        </style>
+    </head>
+    <body>
+        <div id="outer">
+            <div id="d1" class="mydiv"></div>
+            <div id="d2" class="mydiv"></div>
+            <div id="d3" class="mydiv"></div>
+            <div id="d4" class="mydiv"></div>
+            <div id="d5" class="mydiv"></div>
+            <div id="d6" class="mydiv"></div>
+            <div id="d7" class="mydiv"></div>
+            <div id="d8" class="mydiv"></div>
+            <div id="d9" class="mydiv"></div>
+            <div id="d10" class="mydiv"></div>
+            <div id="d11" class="mydiv"></div>
+            <div id="d12" class="mydiv"></div>
+        </div>
+        <p id="p1"></p>
+        <script>
+            var outer = document.getElementById("outer");
+
+            outer.addEventListener("click", greet);
+    
+            function greet(evt) {
+                var paragraph = document.getElementById("p1");
+                paragraph.innerText = evt.target.id;
+                
+//                console.log(this.id);
+//                console.log("Hi from " + evt.target.id);
+            }
+
+        </script>
+    </body>
+</html>
